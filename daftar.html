@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <title>First Media</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,700,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0aa1f9181b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body style="background-color: #E6EFFF;">
+  
+  <div id="navigasi"></div><!-- Navigation -->
+
+  <section style="margin-top: 7em;">
+    <div class="form rounded shadow container">
+      <div class="row">
+        <div class="list-form col-sm-7 isi">
+          <h1>Pendaftaran Online First Media</h1>
+          <p>Pilihan paket dan lengkapi data pemesanan di bawah ini</p>
+          <div class="row">
+            <div class="col"><input type="text" id="nama" placeholder="Nama Anda"></div>
+            <div class="col"><input type="number" id="nomor" placeholder="No. HP"></div>
+          </div>
+          <input type="email" id="email" placeholder="Email Address">
+          <select id="pilih">
+            <option value="0">-- Pilih Paket --</option>
+            <option value="1">Paket Combo Family HD</option>
+            <option value="2">Paket Combo Family Plus</option>
+            <option value="3">Paket Combo DLite HD</option>
+            <option value="4">Paket Combo Elite X1</option>
+            <option value="5">Paket Combo Supreme X1</option>
+            <option value="6">Paket Combo Maxima X1</option>
+            <option value="7">Paket Internet First Media FasNet Lite</option>
+            <option value="8">Paket Internet First Media FasNet Exite</option>
+            <option value="9">Paket Internet First Media FasNet Express</option>
+            <option value="10">Paket Internet First Media FasNet Commerce</option>
+            <option value="11">Paket Internet First Media FasNet Soho</option>
+            <option value="12">Paket Internet First Media FasNet Infinite</option>
+            <option value="13">Paket Internet First Media FasNet CyberCafe</option>
+          </select>
+          <textarea placeholder="Alamat Lengkap" id="alamat" rows="5"></textarea>
+          <button type="button" id="submit" class="btn btn-primary">Submit</button>
+          <button type="button" id="reset" class="btn btn-danger">Reset</button>
+        </div>
+        <div class="col-sm-5 background"></div>
+      </div>
+    </div>
+  </section>
+  <section class="support">
+    <div class="container">
+      <a href="tel:08984288566"><i class="fas fa-phone-alt"></i> Telpon</a>
+      <a href="daftar.html"><i class="fab fa-whatsapp"></i> Chat Via Whatsapp </a>
+    </div>
+  </section>
+
+  <section class="container-fluid banner d-flex align-items-center justify-content-center" style="margin-top: 0;">
+    <div class="container justify-content-end">
+        <div class="banner-text">
+          <h1>Rasakan Kebersamaan Yang Lebih Nyata</h1>
+          <p>Dengan Tayangan Berkualitas & Internet Tercepat Tanpa Batas.</p>
+        </div>
+    </div>
+  </section>
+
+  <div id="foot"></div><!-- Footer -->
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script src="js/js.js"></script>
+  <script>
+    $("#reset").click(function(event) { 
+      $('#nama').val('');
+      $('#nomor').val('');
+      $('#email').val('');
+      $('#pilih').val('0');
+      $("#pilih").removeClass('shadow');
+      $('#alamat').val('');
+    });
+
+    $('#pilih').change(function(event) {
+      $("#pilih").removeClass('shadow');
+    });
+
+    $("#submit").click(function(event) {
+      if( !$('#nama').val() ) {
+
+        alert("Harap Isi Nama Anda");
+        $("#nama").prop('required',true);
+
+      } else if( !$('#nomor').val() ) {
+
+        alert("Harap Isi Nomor Yang Bisa Dihubungi");
+        $("#nomor").prop('required',true);
+
+      } else if( !$('#email').val() ) {
+
+        alert("Masukan Alamat Email Anda");
+        $("#email").prop('required',true);
+
+      } else if( $('#pilih').val() == 0 ) {
+
+        alert("Silahkan Pilih Paket Yang Tersedia");
+        $("#pilih").addClass('shadow');
+
+      } else if( !$('#alamat').val() ) {
+
+        alert("Masukan Alamat Lengkap Anda");
+        $("#alamat").prop('required',true);
+
+      } else {
+
+        var name = $('#nama').val();
+        var number = $('#nomor').val();
+        var email = $('#email').val();
+        var select = $('#pilih :selected').text();
+        var address = $('#alamat').val();
+        var texted = "Hallo Admin First-Media!! Saya " +name+ " Ingin berlangganan " +select+ ", Nomor Telpon : " +number+ ", Email : " +email+ ", Alamat : " +address;
+
+        window.location.href = "https://api.whatsapp.com/send?phone=628984288566&text=" +texted;
+
+      }
+
+    });
+
+    $(document).ready(function() {
+      $('#daftar').addClass('active');
+    });
+  </script>
+ </body>
+</html>
